@@ -3,8 +3,10 @@ int dirPin = 10;
 int stepPin = 11; 
 String in;
 
-String getValue(String data, char separator, int index)
-{
+/*borrowed from 
+stackoverflow.com/questions/29671455/how-to-split-a-string-using-a-specific-delimiter-in-arduino
+*/
+String getValue(String data, char separator, int index){
     int found = 0;
     int strIndex[] = { 0, -1 };
     int maxIndex = data.length() - 1;
@@ -27,6 +29,7 @@ void setup() {
 
   digitalWrite(dirPin, HIGH);
   digitalWrite(stepPin, HIGH);
+  //Start with servo unlocked
   digitalWrite(activePin, LOW);
 
   Serial.begin(115200);
@@ -56,8 +59,6 @@ void loop() {
         digitalWrite(stepPin, HIGH);
       }
        digitalWrite(stepPin, HIGH);
-      
-      
     }
   }
 }
